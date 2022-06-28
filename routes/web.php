@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('banners','\App\Http\Controllers\Bannercontroller@index')->name('banner.index');
+Route::get('banners/create-form','\App\Http\Controllers\Bannercontroller@create')->name('banner.create-form-route');
