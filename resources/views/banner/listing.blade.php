@@ -58,7 +58,7 @@ tr:nth-child(even) {
 <div style="margin-top: 40px; text-align: center;">
   
     <!-- {!! $getAllBanner->links() !!} -->
-    {!! $getAllBanner->render() !!}
+    {!! $getAllBanner->render() !!}              <!-- for pagination -->
 
 </div>
     

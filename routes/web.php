@@ -18,4 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('banners','\App\Http\Controllers\Bannercontroller@index')->name('banner.index');
+
+// GET ADD BANNER FORM VIEW
 Route::get('banners/create-form','\App\Http\Controllers\Bannercontroller@create')->name('banner.create-form-route');
+
+// SAVE ADD BANNER FORM DATA
+Route::get('banners/save-create-form','\App\Http\Controllers\Bannercontroller@store')->name('banner.save-create-form-route');
