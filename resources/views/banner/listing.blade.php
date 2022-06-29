@@ -43,7 +43,7 @@ tr:nth-child(even) {
       <td>{{$v->name}}</td> <!-- database name -->
       <td>{{$v->link}}</td>
       <td>
-        <a href="">Edit</a>   <a href="">Delet</a>
+        <a href="{{route('banner.edit-form-route',$v->id)}}">Edit</a>   <a href="{{route('banner.delete-form-route',$v->id)}}">Delete</a>
       </td>
     </tr>
 

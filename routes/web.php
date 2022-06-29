@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () { 
     return view('welcome');
 });
 
@@ -23,4 +23,13 @@ Route::get('banners','\App\Http\Controllers\Bannercontroller@index')->name('bann
 Route::get('banners/create-form','\App\Http\Controllers\Bannercontroller@create')->name('banner.create-form-route');
 
 // SAVE ADD BANNER FORM DATA
-Route::get('banners/save-create-form','\App\Http\Controllers\Bannercontroller@store')->name('banner.save-create-form-route');
+Route::post('banners/save-create-form','\App\Http\Controllers\Bannercontroller@store')->name('banner.save-create-form-route');
+
+// GET edit BANNER FORM VIEW
+Route::get('banners/{id}/edit-form','\App\Http\Controllers\Bannercontroller@edit')->name('banner.edit-form-route');
+
+// update BANNER FORM DATA
+Route::post('banners/update-banner-form','\App\Http\Controllers\Bannercontroller@update')->name('banner.update-form-route');
+
+// GET edit BANNER FORM VIEW
+Route::get('banners/{id}/delete-banner-form','\App\Http\Controllers\Bannercontroller@delete')->name('banner.delete-form-route');
