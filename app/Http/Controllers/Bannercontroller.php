@@ -46,7 +46,7 @@ public function store(Request $request){
 
 // this function is used to get edit form 
 
-public function edit($parameter){
+public function edit($parameter ){
 
 	$editdata = \App\Models\Banner::where('id',$parameter)->firstOrfail();
 
@@ -77,5 +77,8 @@ public function delete($parameterID){
 
      return redirect()->route('banner.index');
 }
+
+
+
 
 }
