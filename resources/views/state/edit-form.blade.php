@@ -57,33 +57,32 @@ h1 {
 <h1>State Form</h1>
 
 <div class="container">
-  <form action="{{route('state.save-create-form')}}" method="POST" >
+
+  <form action="" method="POST" >
     
     @csrf
-
+<input type="hidden"  value="{{$editdata->id}}"  name="form_edit">
   <div class="form-group">
+
     <label>Country</label>
 
-
-    <select id="country" name="country">
+      <select id="country" name="country">
       <option value="">Choose Country</option>
 
 @if(isset($getallcountry) && !$getallcountry->isEmpty())
 
 @foreach($getallcountry as $key=>$v)
 
-      <option value="{{$v->id}}">{{$v->country_name}}</option>
+      <option value="{{$v->id}}" @if($editdata->country_name == $v->id) selected @endif>{{$v->country_name}}</option>
 @endforeach
 
 @endif
-    </select>
-
-
+     </select>
   </div> 
     
   <div class="form-group">
      <label>State Name</label>
-     <input type="text" id="fname" name="statename" placeholder="enter state name">
+     <input type="text" id="fname" value="{{$editdata->state_name}}" name="statename" placeholder="enter state name">
   </div>
 
 
@@ -91,8 +90,10 @@ h1 {
      <label>status</label>
         <select name="status" class="form-control" id="my_change_event">
             <option value="">Select Status</option>
-            <option value="1">active</option>
-            <option value="2">inactive</option>
+            <option value="1"    @if($editdata->status == 1) selected
+              @endif >active</option>
+            <option value="2"   @if($editdata->status == 2) selected
+              @endif>inactive</option>
          </select>
       
   </div>

@@ -57,3 +57,8 @@ Route::get('state/create_form','\App\Http\Controllers\Statecontroller@create')->
  
 Route::post('state/save-create-form','\App\Http\Controllers\Statecontroller@savecreate')->name('state.save-create-form');
 
+Route::get('state/{id}/edit-form','\App\Http\Controllers\Statecontroller@edit')->name('state.edit-form-route');
+
+Route::post('state/update-country-form','\App\Http\Controllers\Statecontroller@update')->name('state.update-form-route');
+
+Route::get('state/{id}/delet-country-form','\App\Http\Controllers\Statecontroller@delete')->name('state.delete-form-route');

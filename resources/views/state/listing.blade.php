@@ -46,11 +46,22 @@ div {
 @if(isset($getallstate) && !$getallstate->isEmpty())
 
 @foreach($getallstate as $key=>$v)
+  <?php 
 
+    $mycountr = \App\Models\Country::where('id',$v->country_name)->first();
+    
+  ?>
   <tr>
 
     <td>{{$v->id}}</td>
-    <td>{{$v->country_name}}</td>
+    <td>
+      @if($mycountr !=null)
+        {{$mycountr->country_name}}
+
+      @else
+        - 
+      @endif
+    </td>
     <td>{{$v->state_name}}</td>
     <td>
   @if($v->status == 1)
@@ -60,8 +71,8 @@ div {
   @endif
     </td>
     <td>
-      <a href="">Edit</a>
-      <a href="">Delete   </a>
+      <a href="{{route('state.edit-form-route',$v->id)}}">Edit</a>
+      <a href="{{route('state.delete-form-route',$v->id)}}">Delete</a>
     </td>
   </tr>
 

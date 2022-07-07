@@ -36,6 +36,21 @@ class Statecontroller extends Controller
      return redirect()->route('state.listing');
     }
 
+   public function edit($parameter){
+      
+     $editdata = \App\Models\State::where('id',$parameter)->firstOrfail();
+     $getallcountry = \App\Models\Country::get();
+
+	 return view('state.edit-form',compact('editdata','getallcountry'));
+   }
+
+    public function delete($parameterid){
+     
+     $obj = \App\Models\State::where('id',$parameterid)->first();
+     $obj->delete();
+
+     return redirect()->route('state.listing');
+   }
 
 
 }
