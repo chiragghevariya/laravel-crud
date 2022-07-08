@@ -62,3 +62,11 @@ Route::get('state/{id}/edit-form','\App\Http\Controllers\Statecontroller@edit')-
 Route::post('state/update-country-form','\App\Http\Controllers\Statecontroller@update')->name('state.update-form-route');
 
 Route::get('state/{id}/delet-country-form','\App\Http\Controllers\Statecontroller@delete')->name('state.delete-form-route');
+
+// city
+
+Route::get('city','\App\Http\Controllers\Citycontroller@listing')->name('city.listing');
+
+Route::get('city/add-form','\App\Http\Controllers\Citycontroller@create')->name('city.add-form');
+
+Route::post('city/save-add-form','\App\Http\Controllers\Citycontroller@savecreate')->name('city.save-add-form');
