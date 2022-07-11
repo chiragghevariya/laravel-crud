@@ -70,3 +70,9 @@ Route::get('city','\App\Http\Controllers\Citycontroller@listing')->name('city.li
 Route::get('city/add-form','\App\Http\Controllers\Citycontroller@create')->name('city.add-form');
 
 Route::post('city/save-add-form','\App\Http\Controllers\Citycontroller@savecreate')->name('city.save-add-form');
+
+Route::get('city/{id}/edit-form','\App\Http\Controllers\Citycontroller@edit')->name('city.edit-form');
+
+Route::post('city/update-form','\App\Http\Controllers\Citycontroller@update')->name('city.update-form');
+
+Route::get('city/{id}/delete-record','\App\Http\Controllers\Citycontroller@delete')->name('city.delete-form');

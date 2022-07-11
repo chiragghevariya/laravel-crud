@@ -39,13 +39,73 @@ tr:nth-child(even) {
     <th>Status</th>
     <th>Action </th>
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
 
+  @if(isset($getallcity) && !$getallcity->isEmpty())
+
+    @foreach($getallcity as $key=>$v)
+
+       <?php 
+
+        $mycountry = \App\Models\Country::where('id',$v->country_name)->first();
+        $mystate = \App\Models\State::where('id',$v->state_name)->first();
+
+       ?>
+
+      <tr>
+
+       <td>{{$v->id}}</td>
+
+       <td>
+       @if($mycountry !=null)
+        {{$mycountry->country_name}}
+       @else
+        -
+       @endif
+      </td>
+
+       <td>
+        @if($mystate !=null)
+         {{$mystate->state_name}}
+        @else
+        -
+        @endif
+       </td>
+       
+       <td>{{$v->city_name}}</td>
+
+       <td>
+       @if($v->status == 1)
+         active
+       @else
+         inactive
+       @endif
+       </td>
+
+       <td>
+          <a href="{{route('city.edit-form',$v->id)}}">Edit</a>
+          <a href="{{route('city.delete-form',$v->id)}}">Delete</a>
+       </td>
+
+
+      </tr>
+
+    @endforeach
+  
+  @endif
+  
 </table>
+
+  @if(isset($getallcity) && !$getallcity->isEmpty())
+
+   <div style="margin-top: 40px; text-align: center;">
+  
+    <!-- {!! $getallcity->links() !!} -->
+    {!! $getallcity->render() !!}              <!-- for pagination -->
+
+   </div>
+    
+ @endif
+
 
 </body>
 </html>

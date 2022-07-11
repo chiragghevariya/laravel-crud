@@ -57,9 +57,11 @@ h1 {
 
 <div class="container">
 
-  <form action="{{route('city.save-add-form')}}" method="POST">
+  <form action="{{route('city.update-form')}}" method="POST">
     
     @csrf
+<input type="hidden"  value="{{$editdata->id}}"  name="form_edit">
+
 
     <label>Country Name</label>
     <select id="country" name="country">
@@ -69,7 +71,7 @@ h1 {
       
         @foreach($getallcountry as $key=>$v)
 
-          <option value="{{$v->id}}">{{$v->country_name}}</option>
+          <option value="{{$v->id}}" @if($editdata->country_name == $v->id) selected @endif>{{$v->country_name}}</option>
 
         @endforeach
 
@@ -83,23 +85,23 @@ h1 {
 
       @if(isset($getallstate) && !$getallstate->isEmpty())
             
-      @foreach($getallstate as $key=>$p)
+       @foreach($getallstate as $key=>$p)
             
-            <option value="{{$p->id}}">{{$p->state_name}}</option>
+            <option value="{{$p->id}}" @if($editdata->state_name == $p->id) selected @endif>{{$p->state_name}}</option>
 
-      @endforeach
+       @endforeach
 
       @endif
     </select>
 
     <label>City Name</label>
-    <input type="text" id="lname" name="city" placeholder="Your city name">
+    <input type="text" id="lname" value="{{$editdata->city_name}}"  name="city" placeholder="Your city name">
     
     <label>status</label>
     <select name="status" class="form-control" id="my_change_event">
             <option value="">Select Status</option>
-            <option value="1">active</option>
-            <option value="2">inactive</option>
+            <option value="1" @if($editdata->status == 1) selected @endif >active</option>
+            <option value="2" @if($editdata->status == 2) selected @endif>inactive</option>
      </select>
 
     <button type="submit" class="btn btn-primary">Submit</button>

@@ -62,6 +62,7 @@ h1 {
     
     @csrf
 <input type="hidden"  value="{{$editdata->id}}"  name="form_edit">
+  
   <div class="form-group">
 
     <label>Country</label>
