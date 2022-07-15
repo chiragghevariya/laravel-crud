@@ -42,6 +42,19 @@ class Statecontroller extends Controller
 	 return view('state.edit-form',compact('editdata','getallcountry'));
    }
 
+   public function update(Request $request){
+       
+     $obj = \App\Models\State::where('id',$request->form_edit)->first();
+     $obj->country_name = $request->country;
+     $obj->state_name = $request->statename ;
+     $obj->status = $request->status; 
+         /**database field name/form name**/
+     $obj->save();
+
+     return redirect()->route('state.listing');
+    
+   }
+
     public function delete($parameterid){ 
      
      $obj = \App\Models\State::where('id',$parameterid)->first();

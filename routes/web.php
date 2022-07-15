@@ -76,3 +76,18 @@ Route::get('city/{id}/edit-form','\App\Http\Controllers\Citycontroller@edit')->n
 Route::post('city/update-form','\App\Http\Controllers\Citycontroller@update')->name('city.update-form');
 
 Route::get('city/{id}/delete-record','\App\Http\Controllers\Citycontroller@delete')->name('city.delete-form');
+
+
+// area
+
+Route::get('area','\App\Http\Controllers\Areacontroller@listing')->name('area.listing');
+
+Route::get('area/add-form','\App\Http\Controllers\Areacontroller@create')->name('area.add-form');
+
+Route::post('area/save-form','\App\Http\Controllers\Areacontroller@savecreate')->name('area.save-add-form');
+
+Route::get('area/{id}/edit-form','\App\Http\Controllers\Areacontroller@edit')->name('area.edit-form');
+
+Route::post('area/save-edit-form','\App\Http\Controllers\Areacontroller@update')->name('area.save-edit-form');
+
+Route::get('area/{id}/delete-form','\App\Http\Controllers\Areacontroller@delete')->name('area.delete-form');

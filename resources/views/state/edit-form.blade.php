@@ -58,7 +58,7 @@ h1 {
 
 <div class="container">
 
-  <form action="" method="POST" >
+  <form action="{{route('state.update-form-route')}}" method="POST" >
     
     @csrf
 <input type="hidden"  value="{{$editdata->id}}"  name="form_edit">
