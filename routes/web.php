@@ -91,3 +91,21 @@ Route::get('area/{id}/edit-form','\App\Http\Controllers\Areacontroller@edit')->n
 Route::post('area/save-edit-form','\App\Http\Controllers\Areacontroller@update')->name('area.save-edit-form');
 
 Route::get('area/{id}/delete-form','\App\Http\Controllers\Areacontroller@delete')->name('area.delete-form');
+
+
+// product
+
+Route::get('product','\App\Http\Controllers\Productcontroller@listing')->name('product.listing');
+
+Route::get('product/add-form','\App\Http\Controllers\Productcontroller@create')->name('product.add-form');
+
+Route::post('product/save-add-form','\App\Http\Controllers\Productcontroller@savecreate')->name('product.save-add-form');
+
+Route::get('product/{id}/edit-form','\App\Http\Controllers\Productcontroller@edit')->name('product.edit-form');
+
+Route::post('product/save-edit-form','\App\Http\Controllers\Productcontroller@saveedit')->name('product.save-edit-form');
+
+Route::get('product/{id}/delete-edit-form','\App\Http\Controllers\Productcontroller@delete')->name('product.delete-form');
+
+
+Route::get('product/{id}/view-form','\App\Http\Controllers\Productcontroller@view')->name('product.view-form');
