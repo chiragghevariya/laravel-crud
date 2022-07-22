@@ -1,0 +1,8 @@
+@include('adminlt.common.header')
+@include('adminlt.common.sidebar')
+
+
+@include('adminlt.common.footer')
+  
+
+  

@@ -109,3 +109,9 @@ Route::get('product/{id}/delete-edit-form','\App\Http\Controllers\Productcontrol
 
 
 Route::get('product/{id}/view-form','\App\Http\Controllers\Productcontroller@view')->name('product.view-form');
+
+
+
+Route::get('adminlt','\App\Http\Controllers\Adminltcontroller@listing')->name('adminlt.listing');
+
+Route::get('adminlt/banner','\App\Http\Controllers\Adminltcontroller@newlisting')->name('adminlt.newlisting');
